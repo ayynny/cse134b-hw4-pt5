@@ -1,0 +1,16 @@
+---
+export interface Props {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+}
+const { title, excerpt, slug, date } = Astro.props;
+---
+
+<article class="post-card">
+  <h2><a href={`/posts/${slug}`}>{title}</a></h2>
+  <time datetime={date}>{new Date(date).toLocaleDateString()}</time>
+  <p>{excerpt}</p>
+  <a href={`/posts/${slug}`}>Read More</a>
+</article>
